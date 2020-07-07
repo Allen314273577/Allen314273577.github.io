@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>梦叶</title>
+  
+  <subtitle>梦叶的个人博客</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="/"/>
+  <updated>2020-07-07T11:42:29.233Z</updated>
+  <id>/</id>
+  
+  <author>
+    <name>梦叶</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cacti安装教程-超详细</title>
+    <link href="/2020/07/06/Cacti%E8%AF%A6%E7%BB%86%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <id>/2020/07/06/Cacti详细安装教程/</id>
+    <published>2020-07-06T11:07:17.000Z</published>
+    <updated>2020-07-07T11:42:29.233Z</updated>
+    
+    <summary type="html">
+    
+      cacti的安装
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="cacti" scheme="/tags/cacti/"/>
+    
+      <category term="运维技术" scheme="/tags/%E8%BF%90%E7%BB%B4%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>随便日记</title>
+    <link href="/2020/07/04/Demo/"/>
+    <id>/2020/07/04/Demo/</id>
+    <published>2020-07-03T16:51:00.000Z</published>
+    <updated>2020-07-07T11:42:29.233Z</updated>
+    
+    <summary type="html">
+    
+      我的第一篇日记
+    
+    </summary>
+    
+      <category term="日记" scheme="/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+      <category term="日记" scheme="/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="随心" scheme="/tags/%E9%9A%8F%E5%BF%83/"/>
+    
+  </entry>
+  
+</feed>
