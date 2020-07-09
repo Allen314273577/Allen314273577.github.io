@@ -364,17 +364,17 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="hibernate-validate"><a href="#hibernate-validate" class="headerlink" title="hibernate-validate"></a>hibernate-validate</h2><p>刚才虽然实现了注册，但是服务端并没有进行数据校验，而前端的校验是很容易被有心人绕过的。所以我们必须在后台添加数据校验功能：</p>
+          <h1 id="hibernate-validate"><a href="#hibernate-validate" class="headerlink" title="hibernate-validate"></a>hibernate-validate</h1><p>刚才虽然实现了注册，但是服务端并没有进行数据校验，而前端的校验是很容易被有心人绕过的。所以我们必须在后台添加数据校验功能：</p>
 <p>我们这里会使用Hibernate-Validator框架完成数据校验：</p>
 <p>而SpringBoot的web启动器中已经集成了相关依赖：</p>
 <p> <img src="https://cdn-1302577077.cos.ap-shanghai.myqcloud.com/image/assets/1527244265451.png" alt="1527244265451"></p>
-<h3 id="什么是Hibernate-Validator"><a href="#什么是Hibernate-Validator" class="headerlink" title="什么是Hibernate Validator"></a>什么是Hibernate Validator</h3><p>Hibernate Validator是Hibernate提供的一个开源框架，使用注解方式非常方便的实现服务端的数据校验。</p>
+<h1 id="什么是Hibernate-Validator"><a href="#什么是Hibernate-Validator" class="headerlink" title="什么是Hibernate Validator"></a>什么是Hibernate Validator</h1><p>Hibernate Validator是Hibernate提供的一个开源框架，使用注解方式非常方便的实现服务端的数据校验。</p>
 <p>官网：<a href="http://hibernate.org/validator/" target="_blank" rel="noopener">http://hibernate.org/validator/</a></p>
 <p><img src="https://cdn-1302577077.cos.ap-shanghai.myqcloud.com/image/assets/1527244393041.png" alt="1527244393041"></p>
 <p><strong>hibernate Validator</strong> 是 Bean Validation 的参考实现 。</p>
 <p>Hibernate Validator 提供了 JSR 303 规范中所有内置 constraint（约束） 的实现，除此之外还有一些附加的 constraint。</p>
 <p>在日常开发中，Hibernate Validator经常用来验证bean的字段，基于注解，方便快捷高效。</p>
-<h3 id="Bean校验的注解"><a href="#Bean校验的注解" class="headerlink" title="Bean校验的注解"></a>Bean校验的注解</h3><p>常用注解如下：</p>
+<h1 id="Bean校验的注解"><a href="#Bean校验的注解" class="headerlink" title="Bean校验的注解"></a>Bean校验的注解</h1><p>常用注解如下：</p>
 <table>
 <thead>
 <tr>
@@ -469,7 +469,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="给User添加校验"><a href="#给User添加校验" class="headerlink" title="给User添加校验"></a>给User添加校验</h3><p>我们在<code>leyou-user-interface</code>中添加Hibernate-Validator依赖：</p>
+<h1 id="给User添加校验"><a href="#给User添加校验" class="headerlink" title="给User添加校验"></a>给User添加校验</h1><p>我们在<code>leyou-user-interface</code>中添加Hibernate-Validator依赖：</p>
 <pre><code class="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;
     &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
@@ -497,9 +497,9 @@ public class User {
     private String salt;// 密码的盐值
 }
 </code></pre>
-<h3 id="在controller上进行控制"><a href="#在controller上进行控制" class="headerlink" title="在controller上进行控制"></a>在controller上进行控制</h3><p>在controller中改造register方法，只需要给User添加 @Valid注解即可。</p>
+<h1 id="在controller上进行控制"><a href="#在controller上进行控制" class="headerlink" title="在controller上进行控制"></a>在controller上进行控制</h1><p>在controller中改造register方法，只需要给User添加 @Valid注解即可。</p>
 <p><img src="https://cdn-1302577077.cos.ap-shanghai.myqcloud.com/image/assets/1533030001081.png" alt="1533030001081"></p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>我们故意填错：</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>我们故意填错：</p>
 <p><img src="https://cdn-1302577077.cos.ap-shanghai.myqcloud.com/image/assets/1533029312208.png" alt="1533029312208"></p>
 <p>然后SpringMVC会自动返回错误信息：</p>
 <p><img src="https://cdn-1302577077.cos.ap-shanghai.myqcloud.com/image/assets/1533029343713.png" alt="1533029343713"></p>
