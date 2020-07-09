@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-07-07T11:42:29.233Z</updated>
+  <updated>2020-07-09T08:24:09.236Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hibernate-validate完成后台校验</title>
+    <link href="/2020/07/09/%E4%BD%BF%E7%94%A8hibernate-validate%E6%B3%A8%E8%A7%A3%E5%90%8E%E5%8F%B0%E6%A0%A1%E9%AA%8C/"/>
+    <id>/2020/07/09/使用hibernate-validate注解后台校验/</id>
+    <published>2020-07-09T08:14:02.000Z</published>
+    <updated>2020-07-09T08:24:09.236Z</updated>
+    
+    <summary type="html">
+    
+      java中使用后台数据校验后台数据校验
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="hibernate-validate" scheme="/tags/hibernate-validate/"/>
+    
+      <category term="后台校验" scheme="/tags/%E5%90%8E%E5%8F%B0%E6%A0%A1%E9%AA%8C/"/>
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>Cacti安装教程-超详细</title>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Cacti安装教程-超详细 | 梦叶</title>
+  <title itemprop="name">Tag: java | 梦叶</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -328,203 +328,64 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1594044186636&amp;di=2515bb56fd8053931eda28e272a7e364&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.xiami.net%2Fmusician-avatar%2Fa7d7c58fac2b3191cb335b58258387ab%2F1e2a8b27aa41ea9e8a6ec90aa73d6f14-2273x2273.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1594044186636&amp;di=2515bb56fd8053931eda28e272a7e364&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.xiami.net%2Fmusician-avatar%2Fa7d7c58fac2b3191cb335b58258387ab%2F1e2a8b27aa41ea9e8a6ec90aa73d6f14-2273x2273.jpg">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      Cacti安装教程-超详细</h1>
-      <p class="entry-census">
-        <span>
-          <a href="https://blog.bakuman.cn/about/">
-            <img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/avatar.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="https://blog.bakuman.cn/about/">梦叶</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2020-7-6<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="java.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
   </div>
-
+  <header class="pattern-header ">
+    <h1 class="cat-title">java</h1>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h1 id="一-Cacti简介"><a href="#一-Cacti简介" class="headerlink" title="一. Cacti简介"></a>一. Cacti简介</h1><p>Cacti是一套基于PHP,MySQL,SNMP及RRDTool开发的网络流量监测图形分析工具。Cacti是通过 snmp get来获取数据，使用 RRDtool绘画图形，而且你完全可以不需要了解RRDtool复杂的参数。它提供了非常强大的数据和用户管理功能，可以指定每一个用户能查看树状结构、host以及任何一张图，还可以与LDAP结合进行用户验证，同时也能自己增加模板，功能非常强大完善。界面友好。软件 Cacti 的发展是基于让 RRDTool 使用者更方便使用该软件，除了基本的 Snmp 流量跟系统资讯监控外，Cacti 也可外挂 Scripts 及加上 Templates 来作出各式各样的监控图。</p>
-<p>Cacti是用php语言实现的一个软件，它的主要功能是用snmp服务获取数据，然后用rrdtool储存和更新数据，当用户需要查看数据的时候用rrdtool生成图表呈现给用户。因此，snmp和rrdtool是cacti的关键。Snmp关系着数据的收集，rrdtool关系着数据存储和图表的生成。即如果想监控一台主机，需要在被监控主机上安装net-snmp相关软件包，在监控主机上安装rrdtool和cacti。</p>
-<h2 id><a href="#" class="headerlink" title></a><img src="http://www.51wendang.com/pic/7536f9ceaa4c2bd89b012533/11-810-jpg_6-1080-0-0-1080.jpg" alt="cacti原理"></h2><h1 id="二-环境部署"><a href="#二-环境部署" class="headerlink" title="二. 环境部署"></a>二. 环境部署</h1><h2 id="1-安装所需依赖"><a href="#1-安装所需依赖" class="headerlink" title="1. 安装所需依赖"></a>1. 安装所需依赖</h2><pre><code class="shell">yum -y install libxml2 gd fontconfig freetype zlib rrdtool rrdtool-devel freetype libjpeg php-gd
-</code></pre>
-<h2 id="2-安装数据库mariadb"><a href="#2-安装数据库mariadb" class="headerlink" title="2. 安装数据库mariadb"></a>2. 安装数据库mariadb</h2><pre><code class="shell">[root@localhost]#yum -y install mariadb mariadb-server
-</code></pre>
-<h2 id="3-安装apache"><a href="#3-安装apache" class="headerlink" title="3. 安装apache"></a>3. 安装apache</h2><pre><code class="shell">[root@localhost]#yum -y install httpd
-
-</code></pre>
-<h2 id="4-安装php"><a href="#4-安装php" class="headerlink" title="4. 安装php"></a>4. 安装php</h2><pre><code class="shell">[root@localhost]#yum -y install php.x86_64
-</code></pre>
-<h2 id="5-安装php-mysql扩展"><a href="#5-安装php-mysql扩展" class="headerlink" title="5. 安装php-mysql扩展"></a>5. 安装php-mysql扩展</h2><pre><code class="shell">[root@localhost]#yum install -y php-mysql
-</code></pre>
-<h2 id="6-安装PHP常用模块"><a href="#6-安装PHP常用模块" class="headerlink" title="6. 安装PHP常用模块"></a>6. 安装PHP常用模块</h2><pre><code class="shell">[root@localhost]#yum install -y php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel php-bcmath
-</code></pre>
-<h2 id="7-安装SNMP"><a href="#7-安装SNMP" class="headerlink" title="7.安装SNMP"></a>7.安装SNMP</h2><pre><code class="shell">[root@localhost]#yum -y install net-snmp net-snmp-devel net-snmp-utils
-</code></pre>
-<hr>
-<h1 id="三-相关环境配置"><a href="#三-相关环境配置" class="headerlink" title="三. 相关环境配置"></a>三. 相关环境配置</h1><h2 id="1-配置SNMP-vim-etc-snmp-snmpd-conf-（修改3处）"><a href="#1-配置SNMP-vim-etc-snmp-snmpd-conf-（修改3处）" class="headerlink" title="1. 配置SNMP vim /etc/snmp/snmpd.conf （修改3处）"></a>1. 配置SNMP vim /etc/snmp/snmpd.conf （修改3处）</h2><pre><code class="vim">com2sec notConfigUser default public    
-#改成： com2sec notConfigUser 127.0.0.1 public 
-
-access notConfigGroup &quot;&quot; any noauth exact systemview none none    
-#改成：access notConfigGroup &quot;&quot; any noauth exact all none none 
-
-#view all included .1 80            
-去掉前面的#
-</code></pre>
-<h2 id="2-重启相关服务"><a href="#2-重启相关服务" class="headerlink" title="2. 重启相关服务"></a>2. 重启相关服务</h2><pre><code class="shell">#systemctl restart httpd.service 
-#systemctl restart mariadb.service 
-#/etc/init.d/snmpd start
-</code></pre>
-<hr>
-<h1 id="四-开始安装cacti"><a href="#四-开始安装cacti" class="headerlink" title="四. 开始安装cacti"></a>四. 开始安装cacti</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><pre><code class="shell">#cd ~ 
-#wget http://www.cacti.net/downloads/cacti-0.8.8a.tar.gz tar xzf cacti-0.8.8a.tar.gz 
-#mv cacti-0.8.8a   /var/www/html/cacti 
-#cd  /var/www/html/cacti
-</code></pre>
-<h2 id="2-配置mysql并导入数据库"><a href="#2-配置mysql并导入数据库" class="headerlink" title="2. 配置mysql并导入数据库"></a>2. 配置mysql并导入数据库</h2><pre><code class="shell"># mysql -u root -p 
-&gt; create database cacti; 
-&gt;grant all on cacti.* to cacti@localhost identified by &#39;your password&#39;; 
-&gt;use cacti; 
-&gt;source  /var/www/html/cacti/cacti.sql; 
-&gt;flush privileges;
-</code></pre>
-<h2 id="3-为cacti数据库创建独立用户"><a href="#3-为cacti数据库创建独立用户" class="headerlink" title="3. 为cacti数据库创建独立用户"></a>3. 为cacti数据库创建独立用户</h2><pre><code class="shell">mysql&gt; GRANT ALL ON cacti.* TO cactiuser@localhost IDENTIFIED BY &#39;your password&#39;; 
-mysql&gt; flush privileges; 
-</code></pre>
-<h2 id="4-配置cacti数据库源-编辑-include-config-php-和-include-global-php"><a href="#4-配置cacti数据库源-编辑-include-config-php-和-include-global-php" class="headerlink" title="4. 配置cacti数据库源,编辑 include/config.php  和 include/global.php"></a>4. 配置cacti数据库源,编辑 include/config.php  和 include/global.php</h2><pre><code class="shell">$database_type = &quot;mysql&quot;; 
-$database_default = &quot;cacti&quot;; 
-$database_hostname = &quot;localhost&quot;; 
-$database_username = &quot;cactiuser&quot;; 
-$database_password = &quot;cactipassword&quot;; 
-
-#打开注释掉的：
-$url_path = &quot;/cacti/&quot;;
-</code></pre>
-<h2 id="5-配置计划任务"><a href="#5-配置计划任务" class="headerlink" title="5. 配置计划任务"></a>5. 配置计划任务</h2><pre><code class="shell">[root@localhost]#crontab -e 
-*/5 * * * * /usr/bin/php /var/www/html/cacti/poller.php &gt; /dev/null 2&gt;&amp;1
-//让系统每5分钟收集
-
-[root@localhost]#service crond restart 
-</code></pre>
-<p>更多教程可参考:↓↓↓↓↓↓<br><a href="https://www.cnblogs.com/abeli/p/6784794.html" target="_blank" rel="noopener">Cacti安装全流程1</a><br><a href="https://www.cnblogs.com/liuyansheng/p/6118535.html" target="_blank" rel="noopener">Cacti安装全流程2</a></p>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/donate/WeChatQR.jpg"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/07/09/使用hibernate-validate注解后台校验/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594292858697&di=45f1467cb49071db11c5131531f47512&imgtype=0&src=http%3A%2F%2Fimg.opdown.com%2Fattachment%2Fspecial%2F2016%2F1202%2F133613_42253517.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594292858697&di=45f1467cb49071db11c5131531f47512&imgtype=0&src=http%3A%2F%2Fimg.opdown.com%2Fattachment%2Fspecial%2F2016%2F1202%2F133613_42253517.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                hibernate-validate完成后台校验</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2020/07/04/Demo/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://img.zcool.cn/community/01b065554c0b5f000001bf72554ebe.jpg@1280w_1l_2o_100sh.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://img.zcool.cn/community/01b065554c0b5f000001bf72554ebe.jpg@1280w_1l_2o_100sh.jpg">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                随便日记</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
       
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "8H8y2KphUNllbuTfrUAHunQd-gzGzoHsz",
-        appKey: "K7vAuXzukoWowq0P75l0yAHq",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
-
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="https://blog.bakuman.cn/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/avatar.jpg" itemprop="image" alt="梦叶" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="https://blog.bakuman.cn/about/" itemprop="url" rel="author">梦叶</a>
-            </h3>
-          </div>
+  <!-- 首页默认取最最新文章集 -->
+  
+    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2020/07/09/使用hibernate-validate注解后台校验/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
         </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>梦叶</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+        <img width="150" height="150" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1594292858697&amp;di=45f1467cb49071db11c5131531f47512&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.opdown.com%2Fattachment%2Fspecial%2F2016%2F1202%2F133613_42253517.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2020/07/09/使用hibernate-validate注解后台校验/">
+    hibernate-validate完成后台校验</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2020-7-9</div>
+    <p>
+    java中使用后台数据校验后台数据校验</p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2020/07/09/使用hibernate-validate注解后台校验/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
+
+
+      <div class="clearer">
+      </div>
+    </main>
+    <!--  -->
+    
+  </div>
 </div>
-
-
-
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
