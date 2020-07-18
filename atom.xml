@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-07-18T12:17:54.111Z</updated>
+  <updated>2020-07-18T12:31:34.139Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Cacti安装教程-超详细</title>
+    <title>基于Docker部署ES+Kibana开发环境</title>
     <link href="/2020/07/18/%E5%9F%BA%E4%BA%8EDocker%E9%83%A8%E7%BD%B2ES+Kibana%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     <id>/2020/07/18/基于Docker部署ES+Kibana开发环境/</id>
     <published>2020-07-18T12:17:49.000Z</published>
-    <updated>2020-07-18T12:17:54.111Z</updated>
+    <updated>2020-07-18T12:31:34.139Z</updated>
     
     <summary type="html">
     
