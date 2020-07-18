@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">categories | 梦叶</title>
+  <title itemprop="name">Cacti安装教程-超详细 | 梦叶</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -328,50 +328,169 @@
   </div>
 </header>
 
-        <div class="pattern-center-blank"></div>
-  
-  <div id="content" class="site-content">
-    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      
-      <!-- .entry-content -->
-      
-      <div class="single-reward">
-        <div class="reward-open">赏
-          <div class="reward-main">
-            <ul class="reward-row">
-              <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/donate/AliPayQR.jpg"></li>
-              <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/donate/WeChatQR.jpg"></li>
-            </ul>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2353708643,1810750612&amp;fm=26&amp;gp=0.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2353708643,1810750612&amp;fm=26&amp;gp=0.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Cacti安装教程-超详细</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://blog.bakuman.cn/about/">
+            <img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://blog.bakuman.cn/about/">梦叶</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-7-18<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>[toc]</p>
+<h1 id="基于Docker部署ES-Kibana开发环境"><a href="#基于Docker部署ES-Kibana开发环境" class="headerlink" title="基于Docker部署ES+Kibana开发环境"></a>基于Docker部署ES+Kibana开发环境</h1><blockquote>
+<p><code>本教程基于6.4.0版本</code></p>
+</blockquote>
+<h2 id="创建docker容器的通信网络"><a href="#创建docker容器的通信网络" class="headerlink" title="创建docker容器的通信网络"></a>创建docker容器的通信网络</h2><h2 id="安装Elasticsearch"><a href="#安装Elasticsearch" class="headerlink" title="安装Elasticsearch"></a>安装Elasticsearch</h2><pre><code class="shell">[root@localhost ~]# docker pull elasticsearch:6.4.0
+[root@localhost ~]# docker run --name elasticsearch \
+&gt; -p 9200:9200 -p 9300:9300 \
+&gt; -e &quot;discovery.type=single-node&quot; \
+&gt; -e &quot;cluster.name=elasticsearch&quot; \
+&gt; -e &quot;ES_JAVA_OPTS=-Xms256m -Xmx256m&quot; \
+&gt; -d elasticsearch:6.4.0
+</code></pre>
+<h2 id="安装Kibana"><a href="#安装Kibana" class="headerlink" title="安装Kibana"></a>安装Kibana</h2><pre><code class="shell">[root@localhost ~]# docker pull kibana:6.4.0
+[root@localhost ~]# docker run --name kibana -e ELASTICSEARCH_URL=http://10.0.0.1:9200 -p 5601:5601 -d kibana:6.4.0
+
+</code></pre>
+<h2 id="为ES添加IK分词器插件"><a href="#为ES添加IK分词器插件" class="headerlink" title="为ES添加IK分词器插件"></a>为ES添加IK分词器插件</h2><blockquote>
+<p>本教程采用离线安装的方式,将下载好的IK分词器插件上传到服务器,下载方式自行百度<br>将压缩包移动到容器中</p>
+</blockquote>
+<pre><code class="shell">[root@localhost ~]# ll
+total 4400
+-rw-r--r--. 1 root root 4502522 Jul 17 00:28 elasticsearch-analysis-ik-6.4.0.zip
+
+[root@localhost ~]# docker cp elasticsearch-analysis-ik-6.4.0.zip elasticsearch:/usr/share/elasticsearch/plugins
+
+</code></pre>
+<p>进入容器,并安装分词器</p>
+<pre><code class="shell">[root@localhost ~]# docker exec -it elasticsearch /bin/bash
+
+[root@ac28a77ae112 elasticsearch]# cd plugins/
+
+[root@ac28a77ae112 plugins]# ll
+total 4400
+-rw-r--r--. 1 root          root 4502522 Jul 17 04:28 elasticsearch-analysis-ik-6.4.0.zip
+drwxrwxr-x. 2 elasticsearch root     264 Aug 18  2018 ingest-geoip
+drwxrwxr-x. 2 elasticsearch root     114 Aug 18  2018 ingest-user-agent
+[root@ac28a77ae112 plugins]# unzip elasticsearch-analysis-ik-6.4.0.zip -d ik-analyzer
+
+</code></pre>
+<p>删除压缩包,退出容器,重启容器</p>
+<pre><code class="shell">[root@ac28a77ae112 plugins]# rm -rf elasticsearch-analysis-ik-6.4.0.zip
+[root@ac28a77ae112 plugins]# exit
+exit
+[root@localhost ~]# docker restart elasticsearch
+
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/donate/WeChatQR.jpg"></li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-      <footer class="post-footer">
-        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-        <div class="post-tags">
-        </div>
-        <div class="post-share">
-          <div class="social-share sharehidden share-component"></div>
-          <i class="iconfont show-share icon-forward"></i>
-        </div>
-      </footer><!-- .entry-footer -->
-    </article>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
       <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/07/09/使用hibernate-validate注解后台校验/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594292858697&di=45f1467cb49071db11c5131531f47512&imgtype=0&src=http%3A%2F%2Fimg.opdown.com%2Fattachment%2Fspecial%2F2016%2F1202%2F133613_42253517.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594292858697&di=45f1467cb49071db11c5131531f47512&imgtype=0&src=http%3A%2F%2Fimg.opdown.com%2Fattachment%2Fspecial%2F2016%2F1202%2F133613_42253517.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                hibernate-validate完成后台校验</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "8H8y2KphUNllbuTfrUAHunQd-gzGzoHsz",
+        appKey: "K7vAuXzukoWowq0P75l0yAHq",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/avatar.jpg" itemprop="image" alt="梦叶" height="70" width="70"></a>
+          <a href="https://blog.bakuman.cn/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/allen314273577/allen314273577.github.io@v1.0/img/custom/avatar.jpg" itemprop="image" alt="梦叶" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="https://blog.bakuman.cn" itemprop="url" rel="author">梦叶</a>
+            <a href="https://blog.bakuman.cn/about/" itemprop="url" rel="author">梦叶</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>生活中没有朋友,就像生活中没有阳光一样...</p>
+        <p><i class="iconfont icon-write"></i>梦叶</p>
       </section>
+    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
